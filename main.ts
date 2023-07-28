@@ -1,5 +1,5 @@
-const colors: string[] = [];
 const generateColorPalette = (baseHue: number, numOfColors: number): string[] => {
+    const colors: string[] = [];
 
     for(let i = 0; i < numOfColors; i++){
 
@@ -13,7 +13,22 @@ const generateColorPalette = (baseHue: number, numOfColors: number): string[] =>
     return colors
 }
 
+const displayColorPalette = (colors: string[]): void =>{
+    const colorPaleteDiv: HTMLElement = document.getElementById('color-palette')!;
+    colorPaleteDiv.innerHTML = ''
+
+    colors.forEach(color => {
+        const colorBox: HTMLElement = document.createElement('div')
+        colorBox.style.backgroundColor = color
+        colorBox.style.width = '100px'
+        colorBox.style.height = '100px'
+        colorBox.style.display = 'inline-block'
+        colorPaleteDiv.appendChild(colorBox)
+    })
+}
 
 
+const generatedColors: string[] = generateColorPalette(120, 5)
+displayColorPalette(generatedColors)
 
-console.log(generateColorPalette(120, 5)); 
+export {generateColorPalette, displayColorPalette}

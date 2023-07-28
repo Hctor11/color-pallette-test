@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Color pallete generator beta 0.1</title>
-    <link rel="stylesheet" href="./styles/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
     <h1>Color pallete generator B0.1</h1>
-</body>
+    <div id="color-palette"></div>
+    <button id="button">generate</button>
+    <script type="module">
+      import { generateColorPalette, displayColorPalette } from "./index.js";
+
+      let button = document.getElementById("button");
+      button.onclick = () => {
+        const baseHue = Math.random() * 360;
+        const colorsNum = 4;
+        const colors = generateColorPalette(baseHue, colorsNum);
+        displayColorPalette(colors);
+      };
+    </script>
+  </body>
 </html>

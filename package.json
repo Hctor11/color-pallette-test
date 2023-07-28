@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "sass": "^1.64.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },
   "name": "color-test",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
