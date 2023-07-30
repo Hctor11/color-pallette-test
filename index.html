@@ -10,22 +10,37 @@
     <h1>Color pallete generator B0.1</h1>
     <div id="color-palette"></div>
     <button id="button">generate</button>
-    <button id="add">add one more color</button>
+    <button id="add">add one color</button>
+    <button id="quit">quit one color</button>
+    <select id="harmonyTechnique">
+      <option value="complementary">Complementary</option>
+      <option value="analogous">Analogous</option>
+      <option value="triadic">Triadic</option>
+    </select>
 
     <script type="module">
       import { generateColorPalette, displayColorPalette } from "./index.js";
 
       let colorsNum = 1;
+      let quitButton = document.getElementById("quit");
       let addButton = document.getElementById("add")
       let button = document.getElementById("button");
+
+
+      quitButton.onclick = () => {
+        if(colorsNum > 2){
+          colorsNum--;
+        }
+      }
 
       addButton.onclick = () => {
         colorsNum += 1;
       }
 
       button.onclick = () => {
-        const baseHue = Math.random() * 360;
-        const colors = generateColorPalette(baseHue, colorsNum);
+        const harmonyTechnique = document.getElementById('harmonyTechnique').value;
+        const baseHue = Math.random() * 120;
+        const colors = generateColorPalette(baseHue, colorsNum, harmonyTechnique);
         displayColorPalette(colors);
       };
     </script>
