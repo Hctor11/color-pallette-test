@@ -12,9 +12,9 @@ const generateColorPalette = (baseHue, numOfColors, harmonyTechnique) => {
 
     for(let i = 0; i < numOfColors; i++){
 
-        const hue = (baseHue + i * harmonyAngle % 360);
+        const hue = (baseHue + i * harmonyAngle * Math.random() % 360);
         const saturation = 80 + Math.random() * 20;
-        const lightness=  40 + Math.random() * 40;
+        const lightness=  30 + Math.random() * 70;
         
         const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`
         colors.push(color);

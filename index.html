@@ -39,7 +39,7 @@
 
       button.onclick = () => {
         const harmonyTechnique = document.getElementById('harmonyTechnique').value;
-        const baseHue = Math.random() * 120;
+        const baseHue = Math.random() * 360;
         const colors = generateColorPalette(baseHue, colorsNum, harmonyTechnique);
         displayColorPalette(colors);
       };
