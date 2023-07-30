@@ -2,7 +2,7 @@ const generateColorPalette = (baseHue, numOfColors, harmonyTechnique) => {
     const colors = [];
 
     const harmonies = {
-        complementary: 180,
+        complementary: 90,
         analogous: 30,
         triadic: 120
     }
@@ -10,10 +10,9 @@ const generateColorPalette = (baseHue, numOfColors, harmonyTechnique) => {
     const harmonyAngle = harmonies[harmonyTechnique] || 30
 
 
-
     for(let i = 0; i < numOfColors; i++){
 
-        const hue = (baseHue + (i * harmonyAngle) % 360);
+        const hue = (baseHue + i * harmonyAngle % 360);
         const saturation = 80 + Math.random() * 20;
         const lightness=  40 + Math.random() * 40;
         
