@@ -1,3 +1,4 @@
+
 const generateColorPalette = (baseHue, numOfColors, harmonyTechnique) => {
     const colors = [];
 
@@ -8,7 +9,6 @@ const generateColorPalette = (baseHue, numOfColors, harmonyTechnique) => {
     }
 
     const harmonyAngle = harmonies[harmonyTechnique] || 30
-
 
     for(let i = 0; i < numOfColors; i++){
 
@@ -28,6 +28,7 @@ const displayColorPalette = (colors) => {
 
     colors.forEach(color => {
         const colorBox = document.createElement('div')
+        colorBox.className = "color"
         colorBox.style.backgroundColor = color
         colorBox.style.width = '100px'
         colorBox.style.height = '100px'
@@ -36,4 +37,22 @@ const displayColorPalette = (colors) => {
     })
 }
 
-export {generateColorPalette, displayColorPalette}
+const addColor = (colors) => {
+    colors.push(`hsl(${Math.random() * 360}, 80%, ${30 + Math.random() * 70}%)`);
+    const newColor = colors.lenght - 1;
+    const colorBox = document.createElement('div')
+
+    colorBox.className = "color"
+    colorBox.id = "last-color"
+    colorBox.style.backgroundColor = newColor
+    colorBox.style.width = '100px'
+    colorBox.style.height = '100px'
+    colorBox.style.display = 'inline-block'
+    colorBox.style.opacity = 0
+
+    document.getElementById('color-palette').appendChild(colorBox)
+
+    displayColorPalette(colors)
+}
+
+export {generateColorPalette, displayColorPalette, addColor}

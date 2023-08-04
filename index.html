@@ -19,13 +19,13 @@
     </select>
 
     <script type="module">
-      import { generateColorPalette, displayColorPalette } from "./index.js";
+      import { generateColorPalette, displayColorPalette, addColor} from "./index.js";
 
-      let colorsNum = 1;
+      let colorsNum = 4;
       let quitButton = document.getElementById("quit");
       let addButton = document.getElementById("add")
       let button = document.getElementById("button");
-
+      let colors = []
 
       quitButton.onclick = () => {
         if(colorsNum > 2){
@@ -34,13 +34,19 @@
       }
 
       addButton.onclick = () => {
-        colorsNum += 1;
+        colorsNum ++;
+        addColor(colors);
       }
+
+      const harmonyTechnique = document.getElementById('harmonyTechnique').value;
+        const baseHue = Math.random() * 360;
+        colors = generateColorPalette(baseHue, colorsNum, harmonyTechnique);
+        displayColorPalette(colors);
 
       button.onclick = () => {
         const harmonyTechnique = document.getElementById('harmonyTechnique').value;
         const baseHue = Math.random() * 360;
-        const colors = generateColorPalette(baseHue, colorsNum, harmonyTechnique);
+        colors = generateColorPalette(baseHue, colorsNum, harmonyTechnique);
         displayColorPalette(colors);
       };
     </script>

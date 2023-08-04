@@ -27,7 +27,6 @@ const displayColorPalette = (colors: string[]): void =>{
     })
 }
 
-
 const generatedColors: string[] = generateColorPalette(120, 5)
 displayColorPalette(generatedColors)
 

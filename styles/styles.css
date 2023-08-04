@@ -3,4 +3,8 @@ body {
   font-family: "Wix Madefor Display", sans-serif;
   background-color: #E1E2EF;
   text-align: center;
+}
+
+.color {
+  transition: background-color 1s ease-in;
 }/*# sourceMappingURL=styles.css.map */
